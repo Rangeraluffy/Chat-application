@@ -4,14 +4,24 @@
     <div class="chat_box">
         <div class="chat_box_user_list">
             <h2>User list</h2>
-            <div class="chat_box_user_active">
-
+            <div class="chat_box_user_active" *ngFor="let user of userList">
+                <p>{{user}}</p>
             </div>
         </div>
         <div class="messages_list">
-            <div class="chat_box_messages">
-
+            <div class="chat_box_messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
+                <div class="user_message">
+                    <div class="message_box">
+                        <p class="name">{{msg.userName}}</p>
+                        <br/>
+                        <p class="message">{{msg.message}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="send-message">
+        <input type="text" [(ngModel)]="message">
+        <button (click)="sendMessage()">Send</button>
+      </div>
 </div>
