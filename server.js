@@ -47,7 +47,8 @@ function removeUser(userName, id) {
             userList.delete(userName);
         }
     }
+}
 
 http.listen(3000, () => {
     console.log('Server is running');
-})};
+});
