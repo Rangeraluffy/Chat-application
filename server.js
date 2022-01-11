@@ -17,7 +17,19 @@ app.get('/', (req, res) => {
 let userList = new Map();
 
 io.on('connection', (socket) => {
+    let userName = socket.handshake.query.userName;
+    addUser(userName, socket.id);
 
+    socket.broadcast.emit('user-list', [...userList.keys()]);
+    socket.emit('user-list', [...userList.keys()]);
+
+    socket.on('message', (msg) => {
+        socket.broadcast.emit('message-broadcast', {message: msg, userName: userName});
+    })
+
+    socket.on('disconnect', (reason) => {
+        removeUser(userName, socket.id);
+    })
 });
 
 function addUser(userName, id) {
@@ -38,4 +50,4 @@ function removeUser(userName, id) {
 
 http.listen(3000, () => {
     console.log('Server is running');
-})
+})};
