@@ -6,7 +6,7 @@ import * as io from 'socket.io-client';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent{
   
   userName = '';
   message = '';
@@ -16,10 +16,8 @@ export class ChatComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   userNameUpdate(name: string): void {
+    this.socket = io.io(`localhost:3000?userName=${name}`)
     this.userName = name;
   }
 
