@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-username',
@@ -7,12 +7,14 @@ import { Component} from '@angular/core';
 })
 export class UsernameComponent{
 
+  @Output() userNameEvent = new EventEmitter<string>(); 
+
   userName = '';
 
   constructor() { }
 
   setUserName() {
-
+    this.userNameEvent.emit(this.userName);
   }
 
 }
