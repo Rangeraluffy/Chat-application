@@ -28,6 +28,14 @@ function addUser(userName, id) {
     }
 }
 
+function removeUser(userName, id) {
+    if (userList.has(userName)) {
+        let userIds = userList.get(userName);
+        if (userIds.size == 0) {
+            userList.delete(userName);
+        }
+    }
+
 http.listen(3000, () => {
     console.log('Server is running');
 })
