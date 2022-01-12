@@ -1,0 +1,9 @@
+.send_message {
+  align-items: center;
+  display: flex;
+
+  @media screen and (max-width: 425px) {
+    display: flex;
+    text-align: center;
+  }
+}
