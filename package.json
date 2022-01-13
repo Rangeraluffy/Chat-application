@@ -1,6 +1,7 @@
 {
   "name": "chat-application",
   "version": "1.0.0",
+  "homepage": ".",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,7 +17,6 @@
   "bugs": {
     "url": "https://github.com/Rangeraluffy/Chat-application/issues"
   },
-  "homepage": "https://github.com/Rangeraluffy/Chat-application#readme",
   "dependencies": {
     "@fortawesome/angular-fontawesome": "^0.10.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
